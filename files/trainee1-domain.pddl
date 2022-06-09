@@ -1,11 +1,12 @@
+
 (define (domain gym-palnner)
     (:requirements :factored-privacy :typing) 
 
     (:types
         person - trainee 
         machineWithSpotter machineWithoutSpotter - machine
-        MachineA MachineB MachineC  - machineWithoutSpotter
-        MachineD MachineE - machineWithSpotter
+        Lunges PushPress PushUps PullUps Back:T-BarRow Back:30-DegreeLatPulldown - machineWithoutSpotter
+        Squat Deadlift BenchPress Arms:SeatedInclineDumbbellCurl - machineWithSpotter
     )
 
     (:predicates
@@ -96,5 +97,4 @@
             (not (want ?person ?mach))
         )
     )
-
 )
