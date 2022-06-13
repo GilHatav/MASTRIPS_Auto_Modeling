@@ -1,0 +1,3 @@
+PushUps, Back:30-DegreeLatPulldown, PullUps, BenchPress, Deadlift, Squat
+PushUps, Lunges, Back:T-BarRow, BenchPress, Deadlift, Squat
+PullUps, PushUps, Lunges, Arms:SeatedInclineDumbbellCurl, Deadlift, BenchPress

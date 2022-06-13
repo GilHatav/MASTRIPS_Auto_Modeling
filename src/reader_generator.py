@@ -1,6 +1,7 @@
 from typing import List
 from typing import Callable
 
+from gymModel import GymModel
 '''
 Exercises are taken form: https://www.muscleandfitness.com/
 1. Lunges 
@@ -16,25 +17,16 @@ Exercises are taken form: https://www.muscleandfitness.com/
 '''
 
 class ReaderGenerator:
-    def __init__(self, pathPrefix: str):
+    def __init__(self, pathPrefix: str, gymModel):
         self.pathPrefix = pathPrefix
-        self.without_spotter_exercies: List[str] = [
-            'Lunges', 'PushPress', 'PushUps', 
-            'PullUps', 'Back:T-BarRow', 'Back:30-DegreeLatPulldown'
-        ]
-
-        self.with_spotter_exercies: List[str] = [
-            'Squat', 'Deadlift', 'BenchPress',
-            'Arms:SeatedInclineDumbbellCurl'
-        ]
+        self.gymModel = gymModel
     
-    def generate(self, want_machines: List[str], number_of_trainees: int):
-        for trainee_index in range(1, number_of_trainees + 1):
-            with open(f'{self.pathPrefix}trainee{trainee_index}-problem.pddl', "w") as file:
-                file.write(self.generate_problem(trainee_index, want_machines, number_of_trainees))
-            
-            with open(f'{self.pathPrefix}trainee{trainee_index}-domain.pddl', "w") as file:
-                file.write(self.generate_domain())
+    def generate(self, trainee_index: int, want_machines: List[str], number_of_trainees: int):
+        with open(f'{self.pathPrefix}trainee{trainee_index}-problem.pddl', "w") as file:
+            file.write(self.generate_problem(trainee_index, want_machines, number_of_trainees))
+        
+        with open(f'{self.pathPrefix}trainee{trainee_index}-domain.pddl', "w") as file:
+            file.write(self.generate_domain())
 
     def generate_problem(self, trainee_index: int, want_machines: List[str], number_of_trainees: int) -> str:
         machine_objects = self.generate_machine_objects(lambda machine: f'{self._machine_object_name(machine)} - {machine}')
@@ -77,10 +69,10 @@ class ReaderGenerator:
 
         machine_objects_list = []
         if include_without_spotters:
-            for machine in self.without_spotter_exercies:
+            for machine in self.gymModel.without_spotter_exercies:
                 machine_objects_list.append(rule_creator(machine))
         if include_with_spotter:
-            for machine in self.with_spotter_exercies:
+            for machine in self.gymModel.with_spotter_exercies:
                 machine_objects_list.append(rule_creator(machine))
 
         return f'\n{prefix}'.join(machine_objects_list)
@@ -96,8 +88,8 @@ class ReaderGenerator:
     (:types
         person - trainee 
         machineWithSpotter machineWithoutSpotter - machine
-        {" ".join(self.without_spotter_exercies)} - machineWithoutSpotter
-        {" ".join(self.with_spotter_exercies)} - machineWithSpotter
+        {" ".join(self.gymModel.without_spotter_exercies)} - machineWithoutSpotter
+        {" ".join(self.gymModel.with_spotter_exercies)} - machineWithSpotter
     )
 
     (:predicates
