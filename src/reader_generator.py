@@ -1,3 +1,5 @@
+import errno
+import os
 from typing import List
 from typing import Callable
 
@@ -17,15 +19,19 @@ Exercises are taken form: https://www.muscleandfitness.com/
 '''
 
 class ReaderGenerator:
-    def __init__(self, pathPrefix: str, gymModel):
-        self.pathPrefix = pathPrefix
-        self.gymModel = gymModel
+    def __init__(self, path_prefix: str, gym_model):
+        self.path_prefix = path_prefix
+        self.gym_model = gym_model
     
-    def generate(self, trainee_index: int, want_machines: List[str], number_of_trainees: int):
-        with open(f'{self.pathPrefix}trainee{trainee_index}-problem.pddl', "w") as file:
+    def generate(self, dir: str, trainee_index: int, want_machines: List[str], number_of_trainees: int):
+        path = os.path.join(self.path_prefix, dir)
+        if not os.path.isdir(path):
+            os.mkdir(path)
+
+        with open(f'{path}\\trainee{trainee_index}-problem.pddl', "w") as file:
             file.write(self.generate_problem(trainee_index, want_machines, number_of_trainees))
         
-        with open(f'{self.pathPrefix}trainee{trainee_index}-domain.pddl', "w") as file:
+        with open(f'{path}\\trainee{trainee_index}-domain.pddl', "w") as file:
             file.write(self.generate_domain())
 
     def generate_problem(self, trainee_index: int, want_machines: List[str], number_of_trainees: int) -> str:
@@ -69,10 +75,10 @@ class ReaderGenerator:
 
         machine_objects_list = []
         if include_without_spotters:
-            for machine in self.gymModel.without_spotter_exercies:
+            for machine in self.gym_model.without_spotter_exercies:
                 machine_objects_list.append(rule_creator(machine))
         if include_with_spotter:
-            for machine in self.gymModel.with_spotter_exercies:
+            for machine in self.gym_model.with_spotter_exercies:
                 machine_objects_list.append(rule_creator(machine))
 
         return f'\n{prefix}'.join(machine_objects_list)
@@ -88,8 +94,8 @@ class ReaderGenerator:
     (:types
         person - trainee 
         machineWithSpotter machineWithoutSpotter - machine
-        {" ".join(self.gymModel.without_spotter_exercies)} - machineWithoutSpotter
-        {" ".join(self.gymModel.with_spotter_exercies)} - machineWithSpotter
+        {" ".join(self.gym_model.without_spotter_exercies)} - machineWithoutSpotter
+        {" ".join(self.gym_model.with_spotter_exercies)} - machineWithSpotter
     )
 
     (:predicates
