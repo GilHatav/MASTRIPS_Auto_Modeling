@@ -1,0 +1,5 @@
+Lunges, PushUps, PullUps, Squat, BenchPress
+PushPress, PushUps, Back_TBarRow, Squat, Arms_SeatedInclineDumbbellCurl
+PullUps, PushPress, Back_30DegreeLatPulldown, Deadlift, BenchPress
+Back_30DegreeLatPulldown, PushUps, Arms_SeatedInclineDumbbellCurl, Squat, BenchPress
+PushPress, Lunges, Back_TBarRow, Squat, BenchPress

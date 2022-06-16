@@ -1,0 +1,2 @@
+Lunges, PushUps, PullUps, Squat, BenchPress
+PushPress, PushUps, Back_TBarRow, Squat, Arms_SeatedInclineDumbbellCurl

@@ -9,7 +9,9 @@ def generate_automated(gym_model):
     instacne_name = input('Enter the instace name: ')
     number_of_traniees = int(input('Enter number of trainees: '))
     min_exercise_with_spotter = int(input('Enter min exersices with spotters: '))
+    max_exercise_with_spotter = int(input('Enter max exersices with spotters: '))
     min_exercise_without_spotter = int(input('Enter min exersices without spotters: '))
+    max_exercise_without_spotter = int(input('Enter max exersices without spotters: '))
 
     instance_gen = InstanceGenerator(gym_model)
     exercies = instance_gen.generate_instance(number_of_traniees, min_exercise_with_spotter, 
