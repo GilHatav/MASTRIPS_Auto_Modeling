@@ -32,9 +32,27 @@ def generate_manual(gym_model):
     for trainee_index in range(instance.size):
         generator.generate(f'{instacne_name}', trainee_index + 1, instance.exersices[trainee_index], instance.size)
 
+def generate_fix_agent_diffrent_exercises():
+    instance_gen = InstanceGenerator(gym_model)
+    generator = ReaderGenerator('files', gym_model)
+    for i in range(3, 10, 2):
+        for j in range(3, 8):
+            with_spotter = int(j / 2)
+            without_spotter = int(j / 2)
+            if int(j / 2) % 2 == 1:
+                without_spotter = without_spotter + 1
+
+            exercies = instance_gen.generate_instance(i, with_spotter, with_spotter, 
+                without_spotter, without_spotter)
+    
+
+            for trainee_index in range(i):
+                generator.generate(f'{i}a-{j}e', trainee_index + 1, exercies[trainee_index], i)
+
 if __name__ == "__main__":
     gym_model = GymModel()
-
+    
+    
     ans = input('Automated or Manual?: (a/m): ')
     while True:
         if(ans == 'a'):
