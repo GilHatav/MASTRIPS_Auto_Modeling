@@ -14,8 +14,9 @@ def generate_automated(gym_model):
     max_exercise_without_spotter = int(input('Enter max exersices without spotters: '))
 
     instance_gen = InstanceGenerator(gym_model)
-    exercies = instance_gen.generate_instance(number_of_traniees, min_exercise_with_spotter, 
-        min_exercise_without_spotter)
+    exercies = instance_gen.generate_instance(number_of_traniees, 
+        min_exercise_with_spotter, max_exercise_with_spotter,
+        min_exercise_without_spotter, max_exercise_without_spotter)
     
     generator = ReaderGenerator('files', gym_model)
     for trainee_index in range(number_of_traniees):
