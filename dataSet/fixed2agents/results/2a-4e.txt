@@ -1,0 +1,42 @@
+Running configuration ProjectionMafs
+Scanning directory 2a-4e
+Reading files 2a-4e
+Parsing
+Grounding
+Planning
+19  19  18  18  17  17  16  16  15  15  14  14  13  13  12  12  11  11  10  10  9  8  9  7  8  7  6  5  6  5  4  3  4  3  2  1  2  0  *****************************
+0 : (lobby-to-machine pers2 mach_pushups)
+1 : (train-at-machine-without-spotter pers2 mach_pushups)
+2 : (move-machine-to-lobby pers2 mach_pushups)
+3 : (lobby-to-machine pers2 mach_back_30degreelatpulldown)
+4 : (train-at-machine-without-spotter pers2 mach_back_30degreelatpulldown)
+5 : (move-machine-to-lobby pers2 mach_back_30degreelatpulldown)
+6 : (lobby-to-machine pers2 mach_arms_seatedinclinedumbbellcurl)
+7 : (lobby-to-spotter-at-machine pers1 mach_arms_seatedinclinedumbbellcurl)
+8 : (train-at-machine-with-spotter pers2 pers1 mach_arms_seatedinclinedumbbellcurl)
+9 : (move-spotter-machine-to-lobby pers1 mach_arms_seatedinclinedumbbellcurl)
+10 : (move-machine-to-lobby pers2 mach_arms_seatedinclinedumbbellcurl)
+11 : (lobby-to-machine pers2 mach_benchpress)
+12 : (lobby-to-machine pers1 mach_back_tbarrow)
+13 : (train-at-machine-without-spotter pers1 mach_back_tbarrow)
+14 : (move-machine-to-lobby pers1 mach_back_tbarrow)
+15 : (lobby-to-machine pers1 mach_back_30degreelatpulldown)
+16 : (train-at-machine-without-spotter pers1 mach_back_30degreelatpulldown)
+17 : (move-machine-to-lobby pers1 mach_back_30degreelatpulldown)
+18 : (move-machine-to-lobby pers2 mach_benchpress)
+19 : (lobby-to-machine pers1 mach_squat)
+20 : (lobby-to-spotter-at-machine pers2 mach_squat)
+21 : (train-at-machine-with-spotter pers1 pers2 mach_squat)
+22 : (move-machine-to-lobby pers1 mach_squat)
+23 : (move-spotter-machine-to-lobby pers2 mach_squat)
+24 : (lobby-to-machine pers2 mach_benchpress)
+25 : (lobby-to-spotter-at-machine pers1 mach_benchpress)
+26 : (train-at-machine-with-spotter pers2 pers1 mach_benchpress)
+27 : (move-machine-to-lobby pers2 mach_benchpress)
+28 : (move-spotter-machine-to-lobby pers1 mach_benchpress)
+29 : (lobby-to-machine pers1 mach_benchpress)
+30 : (lobby-to-spotter-at-machine pers2 mach_benchpress)
+31 : (train-at-machine-with-spotter pers1 pers2 mach_benchpress)
+2a-4e  success
+Time: 0.7568155
+Plan makespan: 25
