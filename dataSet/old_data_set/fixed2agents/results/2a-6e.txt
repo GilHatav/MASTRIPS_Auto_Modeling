@@ -1,0 +1,58 @@
+Running configuration ProjectionMafs
+Scanning directory 2a-6e
+Reading files 2a-6e
+Parsing
+Grounding
+Planning
+28  28  27  27  26  26  25  25  24  24  23  23  22  22  21  21  20  20  19  19  18  18  17  17  16  15  16  15  14  14  13  13  12  11  12  10  11  10  9  8  9  8  7  6  7  6  5  5  4  3  4  3  2  1  2  0  *****************************
+0 : (lobby-to-machine pers2 mach_pushpress)
+1 : (train-at-machine-without-spotter pers2 mach_pushpress)
+2 : (move-machine-to-lobby pers2 mach_pushpress)
+3 : (lobby-to-machine pers2 mach_pushups)
+4 : (train-at-machine-without-spotter pers2 mach_pushups)
+5 : (move-machine-to-lobby pers2 mach_pushups)
+6 : (lobby-to-machine pers2 mach_back_30degreelatpulldown)
+7 : (train-at-machine-without-spotter pers2 mach_back_30degreelatpulldown)
+8 : (move-machine-to-lobby pers2 mach_back_30degreelatpulldown)
+9 : (lobby-to-machine pers2 mach_squat)
+10 : (lobby-to-spotter-at-machine pers1 mach_squat)
+11 : (train-at-machine-with-spotter pers2 pers1 mach_squat)
+12 : (move-spotter-machine-to-lobby pers1 mach_squat)
+13 : (move-machine-to-lobby pers2 mach_squat)
+14 : (lobby-to-machine pers2 mach_benchpress)
+15 : (lobby-to-spotter-at-machine pers1 mach_benchpress)
+16 : (train-at-machine-with-spotter pers2 pers1 mach_benchpress)
+17 : (move-machine-to-lobby pers2 mach_benchpress)
+18 : (lobby-to-machine pers2 mach_arms_seatedinclinedumbbellcurl)
+19 : (move-spotter-machine-to-lobby pers1 mach_benchpress)
+20 : (lobby-to-machine pers1 mach_lunges)
+21 : (train-at-machine-without-spotter pers1 mach_lunges)
+22 : (move-machine-to-lobby pers1 mach_lunges)
+23 : (lobby-to-machine pers1 mach_pushups)
+24 : (train-at-machine-without-spotter pers1 mach_pushups)
+25 : (move-machine-to-lobby pers1 mach_pushups)
+26 : (lobby-to-machine pers1 mach_pullups)
+27 : (train-at-machine-without-spotter pers1 mach_pullups)
+28 : (move-machine-to-lobby pers1 mach_pullups)
+29 : (move-machine-to-lobby pers2 mach_arms_seatedinclinedumbbellcurl)
+30 : (lobby-to-machine pers1 mach_deadlift)
+31 : (lobby-to-spotter-at-machine pers2 mach_deadlift)
+32 : (train-at-machine-with-spotter pers1 pers2 mach_deadlift)
+33 : (move-machine-to-lobby pers1 mach_deadlift)
+34 : (lobby-to-machine pers1 mach_benchpress)
+35 : (move-spotter-machine-to-lobby pers2 mach_deadlift)
+36 : (lobby-to-spotter-at-machine pers2 mach_benchpress)
+37 : (train-at-machine-with-spotter pers1 pers2 mach_benchpress)
+38 : (move-machine-to-lobby pers1 mach_benchpress)
+39 : (move-spotter-machine-to-lobby pers2 mach_benchpress)
+40 : (lobby-to-machine pers2 mach_arms_seatedinclinedumbbellcurl)
+41 : (lobby-to-spotter-at-machine pers1 mach_arms_seatedinclinedumbbellcurl)
+42 : (train-at-machine-with-spotter pers2 pers1 mach_arms_seatedinclinedumbbellcurl)
+43 : (move-machine-to-lobby pers2 mach_arms_seatedinclinedumbbellcurl)
+44 : (move-spotter-machine-to-lobby pers1 mach_arms_seatedinclinedumbbellcurl)
+45 : (lobby-to-machine pers1 mach_arms_seatedinclinedumbbellcurl)
+46 : (lobby-to-spotter-at-machine pers2 mach_arms_seatedinclinedumbbellcurl)
+47 : (train-at-machine-with-spotter pers1 pers2 mach_arms_seatedinclinedumbbellcurl)
+2a-6e  success
+Time: 1.2440352
+Plan makespan: 38

@@ -45,7 +45,6 @@ class ReaderGenerator:
         trainees_objects = self.generate_persons_objects(number_of_trainees, lambda index:  f'{self._person_object_name(index)} - trainee')
         at_lobby = self.generate_persons_objects(number_of_trainees, lambda index:  f'(at-lobby {self._person_object_name(index)})')
         
-        want_machines_predicate = '\n\t\t'.join([f'(want {self._person_object_name(trainee_index)} {self._machine_object_name(machine)})' for machine in want_machines])
         done_machines_predicate = '\n\t\t\t'.join([f'(done {self._person_object_name(trainee_index)} {self._machine_object_name(machine)})' for machine in want_machines])
 
         return f'''
@@ -59,7 +58,6 @@ class ReaderGenerator:
         {free_machines}
         {free_machines_spotters}
 
-        {want_machines_predicate}
     )
     (:goal
         (and
@@ -106,7 +104,6 @@ class ReaderGenerator:
         (free-spotter ?mach - machineWithSpotter)
 
         (:private
-            (want ?person - trainee ?mach - machine)
             (done ?person - trainee ?mach - machine)
         )
     )
@@ -116,7 +113,6 @@ class ReaderGenerator:
         :precondition (and
             (free ?mach)
             (at-lobby ?person)
-            (want ?person ?mach)
         )
         :effect (and
             (at-machine-as-trainee ?person ?mach)
@@ -166,11 +162,9 @@ class ReaderGenerator:
         :parameters (?person - trainee ?mach - machineWithoutSpotter)
         :precondition (and
             (at-machine-as-trainee ?person ?mach)
-            (want ?person ?mach)
         )
         :effect (and
             (done ?person ?mach)
-            (not (want ?person ?mach))
         )
     )
 
@@ -179,11 +173,9 @@ class ReaderGenerator:
         :precondition (and
             (at-machine-as-trainee ?person ?mach)
             (at-machine-as-spotter ?spotter ?mach)
-            (want ?person ?mach)
         )
         :effect (and
             (done ?person ?mach)
-            (not (want ?person ?mach))
         )
     )
 )'''
