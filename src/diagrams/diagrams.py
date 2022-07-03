@@ -1,7 +1,7 @@
 from matplotlib import markers
 import matplotlib.pyplot as plt
 import numpy as np
-from scipy.interpolate import interp1d
+from scipy.interpolate import interp1d, InterpolatedUnivariateSpline
 
 def draw(makespanMap, makespanTitle,
     timeMap, timeTitle, xlabelTime):
@@ -15,9 +15,11 @@ def draw(makespanMap, makespanTitle,
 
     x = np.array(list(timeMap.keys()))
     y = np.array(list(timeMap.values()))
-    cubic_interploation_model = interp1d(x, y, kind = "cubic")
+
+    cubic_interploation_model = interp1d(x, y, kind = 'cubic')
     X_ = np.linspace(x.min(), x.max(), 500)
     Y_ = cubic_interploation_model(X_)
+
     plt.subplot(212)
     plt.plot(x, y, 'bo', X_, Y_)
     plt.title(timeTitle)
@@ -26,6 +28,33 @@ def draw(makespanMap, makespanTitle,
     plt.grid(True)
 
     plt.show()
+
+def draw_3d(agents, exercies, time):
+    plt.figure()
+    fig = plt.figure(figsize=(4,4))
+    ax = fig.add_subplot(111, projection='3d')
+    ax.scatter(agents, exercies, time)
+    
+    plt.show()
+
+def draw_3d_1():
+    draw_3d(
+        [
+            2, 2, 2, 2, 2, 2,
+            3, 3, 3, 3, 3,
+            5, 5, 5, 5, 5,
+        ],
+        [
+            3, 4, 5, 6, 7, 9,
+            3, 4, 5, 6, 7,
+            3, 4, 5, 6, 7,
+        ],
+        [
+            0.6672246, 0.7568155, 0.8586657, 1.2440352, 1.8903971, 10.1559886,
+            1.1541094, 1.4878105, 1.7315172, 6.3938031, 6.8994105,
+            6.2338869, 21.2167338, 30.3580281, 99.9407701,107.0912424,
+        ]
+    )
 
 def draw_fixed_two_agents():
     resultsMapMakespan = {
@@ -73,7 +102,7 @@ def draw_fixed_five_agents():
     resultsMapMakespan = {
         3: 31,
         4: 54,
-        5: 50,
+        5: 59,
         6: 88,
         7: 90,
     }
@@ -81,15 +110,15 @@ def draw_fixed_five_agents():
     resultsMapTime = {
         3: 6.2338869,
         4: 21.2167338,
-        5: 15.0465051,
-        6: 150.7463391,
-        7: 85.8346918,
+        5: 30.3580281,
+        6: 99.9407701,
+        7: 107.0912424,
     }
 
     draw(resultsMapMakespan, "Five agents", 
         resultsMapTime, "Five agents", "Number of exercises")
 
-def draw_fixed_five_agents():
+def draw_fixed_seven_agents():
     resultsMapMakespan = {
         3: 39,
         4: 68,
@@ -122,4 +151,4 @@ def draw_fixed_five_exercies():
         resultsMapTime, "Five exercises", "Number of agents")
 
 if __name__ == "__main__":
-    draw_fixed_five_exercies()
+    draw_3d_1()
