@@ -117,7 +117,7 @@ def fixed_3_agents_c():
 def fixed_4_agents():
     data_makespan = {2:21, 3:33, 4:46, 5:57, 6:69}
     data_time = {2:3.8316908, 3:7.5344777, 4:21.6450441, 5:22.5030575, 6:35.3324963}
-    plot_exp(data_makespan)
+    plot_linear(data_makespan)
     plot_exp(data_time)
 
 def fixed_4_agents_c():
@@ -129,7 +129,7 @@ def fixed_4_agents_c():
 def fixed_5_agents():
     data_makespan = {2:27, 3:41, 4:58, 5:72, 6:87}
     data_time = {2:13.0860307, 3:34.426766, 4:113.8670589, 5:172.8753762, 6:340.1845551}
-    plot_exp(data_makespan)
+    plot_linear(data_makespan)
     plot_exp(data_time)
 
 def fixed_5_agents_c():
@@ -138,9 +138,21 @@ def fixed_5_agents_c():
     plot_exp(data_makespan)
     plot_exp(data_time)
     
+def fixed_4_Exercises():
+    data_makespan = {2:22, 3:33, 4:46, 5:58}
+    data_time = {2:0.8033596, 3:3.0058173, 4:21.6450441, 5:113.8670589}
+    plot_exp(data_makespan)
+    plot_exp(data_time)
+
+def fixed_4_Exercises_c():
+    data_makespan = {0:0, 2:38 , 3:57 ,4:80}
+    data_time = {0:0, 2:1.6702687, 3:12.0838632, 4:292.9357663}
+    plot_exp(data_makespan)
+    plot_exp(data_time)
     
     
-fixed_4_agents_c()
+    
+fixed_4_Exercises_c()
     
 
 
